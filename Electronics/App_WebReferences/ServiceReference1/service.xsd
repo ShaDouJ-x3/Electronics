@@ -354,7 +354,6 @@
   <xs:element name="UpdateUserProfile">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="usr" nillable="true" type="q19:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -385,7 +384,6 @@
   <xs:element name="SelectAllMsgResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="SelectAllMsgResult" nillable="true" type="q20:ArrayOfMailBox" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

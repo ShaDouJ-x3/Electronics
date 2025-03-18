@@ -3,20 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-        <div class="login">
-        <asp:Label runat="server" Text="Fist name" Style="margin-right: 152px;" />
-        <asp:Label runat="server" Text="Last name" />
-
-        <br />
-
-        <asp:TextBox Style="padding: 5px; margin-right: 60px; width: 170px;" ID="first_name" runat="server"></asp:TextBox>
-        <asp:TextBox Style="padding: 5px; width: 170px;" ID="last_name" runat="server"></asp:TextBox>
-
-        <br />
-
-        <asp:RequiredFieldValidator ID="rfvfirst_name" runat="server"
-            ControlToValidate="first_name"
-            ErrorMessage="First name is required!"
+    <div class="login">
             ForeColor="Red"
             ValidationGroup="register"
             Style="margin-right: 55px" />
@@ -56,31 +43,17 @@
             ControlToValidate="password"
             ErrorMessage="Password is required!"
             ForeColor="Red"
-            ValidationGroup="register"
-            Style="margin-right: 20px" />
 
         <br />
 
         <asp:RequiredFieldValidator ID="rfvConfirm" runat="server"
             ControlToValidate="password_confirm"
-            ErrorMessage="password confirmation is required!"
-            ForeColor="Red"
-            ValidationGroup="register" />
-
-
-
-        <asp:CompareValidator ID="CompareValidator1" runat="server"
-            ControlToValidate="password_confirm"
-            ControlToCompare="password"
-            Type="String"
-            ErrorMessage="Passwords don't match!"
             ForeColor="Red"
             ValidationGroup="register" />
 
         <br />
 
         <asp:Label runat="server" Text="Phone Number" />
-        <asp:TextBox Style="padding: 5px; margin-right: 230px;" ID="phoneNumber" TextMode="Phone" runat="server" placeholder="enter phone number"></asp:TextBox>
         <asp:RequiredFieldValidator ID="rfvPhoneNumber" runat="server"
             ControlToValidate="phoneNumber"
             ErrorMessage="Phone Number is required!"
@@ -94,7 +67,6 @@
             <asp:ListItem Text="Select Gender" Value="" />
             <asp:ListItem Text="Male" Value="Male" />
             <asp:ListItem Text="Female" Value="Female" />
-            <asp:ListItem Text="Other" Value="Other" />
         </asp:DropDownList>
 
         <br />
@@ -122,12 +94,6 @@
         <br />
 
         <asp:Label runat="server" Text="Country" />
-        <asp:DropDownList Style="padding: 5px; margin-right: 230px;" ID="country" runat="server">
-            <asp:ListItem Text="Select Country" />
-            <asp:ListItem Text="USA" Value="1" />
-            <asp:ListItem Text="Canada" Value="2" />
-            <asp:ListItem Text="UK" Value="3" />
-            <asp:ListItem Text="Australia" Value="4" />
         </asp:DropDownList>
         <asp:RequiredFieldValidator ID="rfvCountry" runat="server"
             ControlToValidate="country"
@@ -138,9 +104,9 @@
 
         <br />
 
-        <asp:Label runat="server" Text="Security Question" />
-        <asp:DropDownList Style="padding: 5px; margin-right: 100px;" ID="securityQuestion" runat="server">
-            <asp:ListItem Text="Select a question" />
+
+        <br />
+                <asp:Label runat="server" Text="Security Question" />
             <asp:ListItem Text="What is your pet's name?" Value="pet" />
             <asp:ListItem Text="What is your mother's maiden name?" Value="mother" />
             <asp:ListItem Text="What city were you born in?" Value="birthCity" />
@@ -156,8 +122,8 @@
             ValidationGroup="register" />
 
         <br />
+        <br />
 
-        <asp:Label runat="server" Text="Answer:" />
         <asp:TextBox Style="padding: 5px; margin-right: 160px;" ID="securityAnswer" runat="server" Placeholder="Enter your answer"></asp:TextBox>
         <asp:RequiredFieldValidator ID="rfvsecurityAnswer" runat="server"
             ControlToValidate="securityAnswer"
@@ -166,12 +132,10 @@
             ValidationGroup="register" />
 
         <br />
+        <br />
 
 
-        <asp:Button ID="register" runat="server" Text="register" Style="margin-right: 10px;" OnClick="register_Click" ValidationGroup="register" />
-
-        <asp:Label ID="exist" runat="server" Text="" Style="color: red;" />
 
         <asp:Button ID="sign_in" runat="server" Text="sgin in" class="login_btn" OnClick="sgin_in_Click" />
-            </div>
+    </div>
 </asp:Content>

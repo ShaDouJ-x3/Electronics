@@ -87,31 +87,7 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="nav-item active">
-        <a id="link1" runat="server" class="nav-link" href="~/pages/Home.aspx">
-            <asp:Label ID="lbl1" runat="server" Text="Home" />
-        </a>
-    </li>
-    <li class="nav-item">
-        <a id="link2" runat="server" class="nav-link" href="~/pages/Singin.aspx">
-            <asp:Label ID="lbl2" runat="server" Text="Sing in" />
-        </a>
-    </li>
-    <li class="nav-item">
-        <a id="link3" runat="server" class="nav-link" href="~/pages/product.aspx">
-            <asp:Label ID="lbl3" runat="server" Text="product" />
-        </a>
-    </li>
-    <li class="nav-item">
-        <a id="link4" runat="server" class="nav-link" href="~/pages/Contact.aspx">
-            <asp:Label ID="lbl4" runat="server" Text="Contact" />
-        </a>
-    </li>
-    <li class="nav-item">
-     <a id="link5" runat="server" class="nav-link" href="~/pages/About.aspx">
-     <asp:Label ID="lbl5" runat="server" Text="About" />
-        </a>
- </li>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>

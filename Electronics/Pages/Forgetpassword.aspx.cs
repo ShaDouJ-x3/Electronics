@@ -28,21 +28,7 @@ public partial class Pages_Forgetpassword : System.Web.UI.Page
 
     protected void Check_Click(object sender, EventArgs e)
     {
-        string Uemail = email.Text;
-        if (seserv.CheckUserExistByEmail(Uemail) && answer.Text.Equals(""))
         {
-            lblpasswordque.Visible = true;
-            answer.Visible = true;
-            lblpasswordque.Visible = true;
-            lblpasswordque.Text = seserv.GetQuestion(Uemail).ToString();
-            reset.Visible = true;
-            lblinfo.Text = "";
-            return;
-        }
-        if (!seserv.CheckUserExistByEmail(Uemail))
-        {
-            lblinfo.Text = "Not a registered Email!";
-            return;
         }
 
         string uEmail = email.Text;
@@ -52,15 +38,14 @@ public partial class Pages_Forgetpassword : System.Web.UI.Page
         if (pass != null)
             lblinfo.Text = "your passowrd is:" + pass;
         else
-            lblinfo.Text = "wrong answer";
     }
 
     protected void btnReset_Click(object sender, EventArgs e)
     {
-        email.Text = "";
-        answer.Text = "";
-        question.Visible = false;
+
+        if (pass.Length > 0)
+            lblinfo.Text = "your passowrd is:  " + pass;
+        else
+            lblinfo.Text = "Try Again!";
     }
-
-
 }

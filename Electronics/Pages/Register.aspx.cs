@@ -5,8 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Xml.Linq;
-using ServiceReference1;
 public partial class Pages_Register : System.Web.UI.Page
 {
     Service1Client serv = new Service1Client();
