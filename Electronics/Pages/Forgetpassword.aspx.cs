@@ -11,9 +11,6 @@ using ServiceReference1;
 
 public partial class Pages_Forgetpassword : System.Web.UI.Page
 {
-
-
-
     Service1Client seserv = new Service1Client();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -61,6 +58,4 @@ public partial class Pages_Forgetpassword : System.Web.UI.Page
         answer.Text = "";
         question.Visible = false;
     }
-
-
 }

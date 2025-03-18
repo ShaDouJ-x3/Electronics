@@ -33,41 +33,41 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
-   <!-- Javascript files-->
- <script src="../js/jquery.min.js"></script>
- <script src="../js/popper.min.js"></script>
- <script src="../js/bootstrap.bundle.min.js"></script>
- <script src="../js/jquery-3.0.0.min.js"></script>
- <script src="../js/plugin.js"></script>
- <!-- sidebar -->
- <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
- <script src="../js/custom.js"></script>
- <!-- javascript -->
- <script src="../js/owl.carousel.js"></script>
- <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
- <script>
-     $(document).ready(function () {
-         $(".fancybox").fancybox({
-             openEffect: "none",
-             closeEffect: "none"
-         });
+    <!-- Javascript files-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.0.0.min.js"></script>
+    <script src="../js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <!-- javascript -->
+    <script src="../js/owl.carousel.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
 
-         $(".zoom").hover(function () {
+            $(".zoom").hover(function () {
 
-             $(this).addClass('transition');
-         }, function () {
+                $(this).addClass('transition');
+            }, function () {
 
-             $(this).removeClass('transition');
-         });
-     });
- </script>
-    
-    <asp:ContentPlaceHolder id="head" runat="server">
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
- 
+
         <!-- header inner -->
         <div class="header">
 
@@ -77,7 +77,8 @@
                         <div class="full">
                             <div class="center-desk">
                                 <div class="logo">
-                                    <a href="Home.aspx"><img src="../images/logo.png" alt="#"></a>
+                                    <a href="Home.aspx">
+                                        <img src="../images/logo.png" alt="#"></a>
                                 </div>
                             </div>
                         </div>
@@ -88,31 +89,27 @@
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
                                         <li class="nav-item active">
-        <a id="link1" runat="server" class="nav-link" href="~/pages/Home.aspx">
-            <asp:Label ID="lbl1" runat="server" Text="Home" />
-        </a>
-    </li>
-    <li class="nav-item">
-        <a id="link2" runat="server" class="nav-link" href="~/pages/Singin.aspx">
-            <asp:Label ID="lbl2" runat="server" Text="Sing in" />
-        </a>
-    </li>
-    <li class="nav-item">
-        <a id="link3" runat="server" class="nav-link" href="~/pages/product.aspx">
-            <asp:Label ID="lbl3" runat="server" Text="product" />
-        </a>
-    </li>
-    <li class="nav-item">
-        <a id="link4" runat="server" class="nav-link" href="~/pages/Contact.aspx">
-            <asp:Label ID="lbl4" runat="server" Text="Contact" />
-        </a>
-    </li>
-    <li class="nav-item">
-     <a id="link5" runat="server" class="nav-link" href="~/pages/About.aspx">
-     <asp:Label ID="lbl5" runat="server" Text="About" />
-        </a>
- </li>
+                                            <a id="link1" runat="server" class="nav-link" href="~/pages/Home.aspx">
+                                                <asp:Label ID="lbl1" runat="server" Text="Home" />
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="link2" runat="server" class="nav-link" href="~/pages/Singin.aspx">
+                                                <asp:Label ID="lbl2" runat="server" Text="Login" />
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="link3" runat="server" class="nav-link" href="~/pages/items.aspx">
+                                                <asp:Label ID="lbl3" runat="server" Text="Items" />
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="link4" runat="server" class="nav-link" href="~/pages/Contact.aspx">
+                                                <asp:Label ID="lbl4" runat="server" Text="Contacts" />
+                                            </a>
+                                        </li>
                                     </ul>
+
                                 </nav>
                             </div>
                         </div>
@@ -120,9 +117,12 @@
                     <div class="col-md-6 offset-md-6">
                         <div class="location_icon_bottum">
                             <ul>
-                                <li><img src="../icon/call.png" />(+71)9876543109</li>
-                                <li><img src="../icon/email.png" />demo@gmail.com</li>
-                                <li><img src="../icon/loc.png" />Location</li>
+                                <li>
+                                    <img src="../icon/call.png" />(+71)9876543109</li>
+                                <li>
+                                    <img src="../icon/email.png" />demo@gmail.com</li>
+                                <li>
+                                    <img src="../icon/loc.png" />Location</li>
                             </ul>
                         </div>
                     </div>
@@ -130,11 +130,10 @@
             </div>
         </div>
         <!-- end header inner -->
-    <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>

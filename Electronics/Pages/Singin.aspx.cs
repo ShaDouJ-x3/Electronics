@@ -29,14 +29,12 @@ public partial class Pages_Singin : System.Web.UI.Page
         {
             Session["email"] = mail;
             Session["password"] = pass;
-            Response.Redirect("home.aspx");
+            Response.Redirect("Home.aspx");
         }
     }
     protected void forgot_password_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Forgetpassword.aspx");
+        Response.Redirect("forgetpassword.aspx");
     }
-
-
 
 }

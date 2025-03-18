@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Xml.Linq;
 using ServiceReference1;
+
 public partial class Pages_Register : System.Web.UI.Page
 {
     Service1Client serv = new Service1Client();
@@ -58,12 +59,13 @@ public partial class Pages_Register : System.Web.UI.Page
         }
     }
 
-   
+    protected void agreeTerms(object source, ServerValidateEventArgs args)
+    {
+        args.IsValid = check_terms.Checked;
+    }
 
     protected void sgin_in_Click(object sender, EventArgs e)
     {
 
     }
-
-
 }
