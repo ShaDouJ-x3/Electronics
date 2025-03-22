@@ -22,14 +22,7 @@
         <asp:RequiredFieldValidator ValidationGroup="check" ID="rfvAnswer" runat="server" ControlToValidate="answer"
             ErrorMessage="Answer is required" ForeColor="Red" Display="Dynamic" />
 
-        <br />
-
-        <asp:Label ID="lblinfo" runat="server" Text="asdw" />
-
-        <asp:Button ID="check" runat="server" Text="Check" Style="float: right;" OnClick="Check_Click" ValidationGroup="check" />
-        <asp:Button ID="reset" runat="server" Text="Reset" Style="float: right; margin-right: 10px;" OnClick="btnReset_Click" />
-
-    </div>
+    </div> 
     
 </asp:Content>
 

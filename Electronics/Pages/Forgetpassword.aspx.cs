@@ -38,8 +38,6 @@ public partial class Pages_Forgetpassword : System.Web.UI.Page
         }
         if (!seserv.CheckUserExistByEmail(Uemail))
         {
-            lblinfo.Text = "Not a registered Email!";
-            return;
         }
 
         string uEmail = email.Text;
