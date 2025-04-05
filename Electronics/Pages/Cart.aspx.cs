@@ -1,69 +1,128 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ServiceReference1;
 
-public partial class Pages_Cart : System.Web.UI.Page
+public partial class Pages_cart : System.Web.UI.Page
 {
-    Service1Client seserv = new Service1Client();
+    readonly Service1Client serv = new Service1Client();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["uEmail"] == null)
+        Session["email"] = "abcd";
+        if (!Page.IsPostBack)
         {
-            Response.Redirect("~/Home.aspx");
-        }
-        if (!IsPostBack)
-        {
-            GetDataItem();
-        }
-    }
-    private void GetDataItem()
-    {
-        string Uemail = Session["uEmail"] as string;
-        GVCart.DataSource = seserv.SelectUserOrder(Uemail);
-        GVCart.DataBind();
-
-        string userEmail = Session["uEmail"] as string;
-        if (seserv.SelectUserOrder(userEmail) == null)
-            this.Label1.Text = " no orders";
-        else
-        {
-            GVCart.DataSource = seserv.SelectUserOrder(userEmail);
-            GVCart.DataBind();
-
-            this.Label1.Text = seserv.TotalOrderToPay(userEmail).ToString();
-            Session["totalToPay"] = this.Label1.Text;
+            BindData();
         }
     }
 
-    protected void GVCart_SelectedIndexChanged(object sender, EventArgs e)
+    private void BindData()
+    {
+
+        Item[] dt = serv.GetCartItems(Session["email"].ToString());
+
+        List<Item> items = new List<Item>();
+        for (int i = 0, j = 0; i < dt.Length; i++, j++)
+        {
+            Item item = dt[i];
+            if (item != null)
+                items.Add(item);
+        }
+
+        GridView.DataSource = items;
+        GridView.AutoGenerateColumns = false;
+        GridView.DataBind();
+    }
+
+
+
+    protected void PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridView.PageIndex = e.NewPageIndex;
+
+        BindData();
+    }
+
+    protected void Cart_Click(object sender, EventArgs e)
+    {
+    }
+
+    protected void view_Click(object sender, EventArgs e)
+    {
+    }
+
+    protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
+    {
+    }
+
+    protected void cart_Command(object sender, CommandEventArgs e)
     {
 
     }
-    protected void GVCart_RowDeleting(object sender, System.Web.UI.WebControls.GridViewDeleteEventArgs e)
+
+    protected void view_Command(object sender, CommandEventArgs e)
     {
-        string uEmail = Session["uEmail"] as string;
-        Service1Client srv = new Service1Client();
-        int itemId = int.Parse(GVCart.Rows[e.RowIndex].Cells[0].Text);
-        string orderDate = GVCart.Rows[e.RowIndex].Cells[4].Text;
-        Order order = new Order();
-        order.Uemail = uEmail;
-        order.ItemId = itemId;
-        order.OrderDate = orderDate;
-        if (srv.DeleteOrder(order) > 0)
-            this.lblmsg.Text = "One Order Deleted ";
-        else
-            this.lblmsg.Text = "Detetion failed ";
-        GVCart.EditIndex = -1;
-        GetDataItem();
+        string a = e.CommandArgument.ToString();
+        Response.Redirect("Phone/" + a);
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void Remove_Command(object sender, CommandEventArgs e)
     {
+        Cart cart = serv.SelectCartByEmail(Session["email"].ToString());
+        string itemID = e.CommandArgument.ToString();
 
+
+        string items = cart.Items.Replace(itemID + ",", "");
+        cart.Items = items;
+        serv.UpdateCart(cart);
+        BindData();
     }
 
+    protected void CheckOut_Click(object sender, EventArgs e)
+    {
+        CheckOut.Visible = false;
+        visanum.Visible = true;
+        visanumber.Visible = true;
+        visaexp.Visible = true;
+        expdate.Visible = true;
+        visacvv.Visible = true;
+        cvv.Visible = true;
+        confirmorder.Visible = true;
+    }
+
+    protected void confirmorder_Click(object sender, EventArgs e)
+    {
+
+        if (Page.IsValid)
+        {
+            if (Session["email"] == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
+
+            int p = 0;
+            string[] ints = serv.SelectCartByEmail(Session["email"].ToString()).ItemCount.Split(',');
+
+            for (int i = 0; i < ints.Length; i++)
+            {
+                p += int.Parse(ints[i]);
+            }
+            Order order = new Order
+            {
+                UserEmail = Session["email"].ToString(),
+                CartID = serv.SelectCartByEmail(Session["email"].ToString()).CartID,
+                OrderDate = DateTime.Now.ToString("d"),
+                Price = p,
+                VisaNumber = visanum.Text
+            };
+            serv.AddOrder(order);
+            confirm.Visible = true;
+            Cart cart = serv.SelectCartByEmail(Session["email"].ToString());
+            serv.DeleteCart(cart);
+        }
+    }
 }

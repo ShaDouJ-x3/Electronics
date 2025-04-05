@@ -2169,3 +2169,5 @@ ul.location_icon span {
     position: relative;
     max-width: min-content;
 }
+
+.login select {visibility:hidden;}

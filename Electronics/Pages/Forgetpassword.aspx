@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <div class="login">
+  <div class="login">
 
         <asp:Label runat="server" Text="Email:" AssociatedControlID="email" />
         <asp:TextBox ID="email" Style="padding: 5px; margin-right: 160px;" TextMode="Email" runat="server"></asp:TextBox>
@@ -22,7 +22,15 @@
         <asp:RequiredFieldValidator ValidationGroup="check" ID="rfvAnswer" runat="server" ControlToValidate="answer"
             ErrorMessage="Answer is required" ForeColor="Red" Display="Dynamic" />
 
-    </div> 
+        <br />
+
+        <asp:Label ID="lblinfo" runat="server" Text="asdw" />
+
+        <asp:Button ID="check" runat="server" Text="Check" Style="float: right;" OnClick="Check_Click" ValidationGroup="check" />
+        <asp:Button ID="reset" runat="server" Text="Reset" Style="float: right; margin-right: 10px;" OnClick="btnReset_Click" />
+
+    </div>
+
     
 </asp:Content>
 

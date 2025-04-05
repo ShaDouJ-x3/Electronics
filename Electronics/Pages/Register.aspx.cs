@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 using ServiceReference1;
 
 public partial class Pages_Register : System.Web.UI.Page
 {
-    Service1Client serv = new Service1Client();
+
+    readonly Service1Client serv = new Service1Client();
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -41,8 +42,8 @@ public partial class Pages_Register : System.Web.UI.Page
             Ugender = gender,
             Ubirthday = dob,
             Utelnum = phoneNumber,
-            uQuestion = securityQuestion,
-            uAnswer = securityAnswer
+            Uquestion = securityQuestion,
+            Uanswer = securityAnswer
         };
 
 

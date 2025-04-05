@@ -108,6 +108,11 @@
                                                 <asp:Label ID="lbl4" runat="server" Text="Contacts" />
                                             </a>
                                         </li>
+                                        <li class="nav-item active">
+                                            <a id="link5" runat="server" class="nav-link" href="~/pages/cart.aspx" >
+                                                <asp:Label ID="lbl5" runat="server" Text="Cart"  />
+                                            </a>
+                                        </li>
                                     </ul>
 
                                 </nav>
@@ -118,11 +123,11 @@
                         <div class="location_icon_bottum">
                             <ul>
                                 <li>
-                                    <img src="../icon/call.png" />(+71)9876543109</li>
+                                    <img src="../../icon/call.png" />(+71)9876543109</li>
                                 <li>
-                                    <img src="../icon/email.png" />demo@gmail.com</li>
+                                    <img src="../../icon/email.png" />demo@gmail.com</li>
                                 <li>
-                                    <img src="../icon/loc.png" />Location</li>
+                                    <img src="../../icon/loc.png" />Location</li>
                             </ul>
                         </div>
                     </div>

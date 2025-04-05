@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="bbc4d0fe-9f80-4c42-adc4-94044a84806a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="6fc05161-e9f9-4074-8258-2ced5bdecc34" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WcfServicecoatsshop/Service1/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="19d1d81f-98b6-45d1-b954-6449c74d7d00" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServicecoatsshop/Service1/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="528d656b-05ac-49b1-b067-9b9780701c6f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServicecoatsshop/Service1/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="de372061-8c64-441a-b16d-1dde23636f64" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServicecoatsshop/Service1/mex" />
-    <MetadataFile FileName="Model.xsd" MetadataType="Schema" ID="2cd7413c-a9f7-46dd-aab4-6c0dfdafa5ac" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServicecoatsshop/Service1/mex" />
-    <MetadataFile FileName="System.Data.xsd" MetadataType="Schema" ID="37641a08-1687-4fd2-8495-b2a9e55e7afe" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServicecoatsshop/Service1/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="8f6e71c3-48c0-4898-b18e-6ace6dd6be12" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServicecoatsshop/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="795746fd-f9d3-40b1-8f81-598c587e4891" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServicecoatsshop/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="6250af85-f288-4f76-ab38-709c759a6197" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServicecoatsshop/Service1/mex" />
+    <MetadataFile FileName="Model.xsd" MetadataType="Schema" ID="4983a0f6-cbe7-4edf-ad4b-2705e01562e1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServicecoatsshop/Service1/mex" />
+    <MetadataFile FileName="System.Data.xsd" MetadataType="Schema" ID="fac3bf21-c374-4557-b863-062f8d17e821" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfServicecoatsshop/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

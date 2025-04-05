@@ -15,10 +15,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
             {
                 link2.HRef = "~/pages/profile.aspx";
                 lbl2.Text = "profile";
+               
+            }
+            else
+            {
+                link5.Visible = false;
+                lbl5.Visible = false;
             }
         }
     }
-
-
-
 }

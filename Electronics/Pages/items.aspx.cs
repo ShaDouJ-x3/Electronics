@@ -10,12 +10,15 @@ using ServiceReference1;
 
 public partial class Pages_items : System.Web.UI.Page
 {
-    Service1Client serv = new Service1Client();
+    readonly Service1Client serv = new Service1Client();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (Session["email"] == null)
         {
-
+            Response.Redirect("Singin.aspx");
+        }
+        else if (!IsPostBack)
+        {
             BindData();
         }
     }
@@ -26,14 +29,14 @@ public partial class Pages_items : System.Web.UI.Page
         DataTable dt = serv.GetItems();
 
         List<Item> items = new List<Item>();
-        Item item = null;
+        Item item;
 
 
         for (int i = 0, j = 0; i < dt.Rows.Count; i++, j++)
         {
             item = new Item
             {
-                ItemCode = int.Parse(dt.Rows[i]["ItemID"].ToString()),
+                ItemID = int.Parse(dt.Rows[i]["ItemID"].ToString()),
                 Name = dt.Rows[i]["Name"].ToString(),
                 Price = int.Parse(dt.Rows[i]["Price"].ToString()),
                 ItemImg = dt.Rows[i]["ItemImg"].ToString(),
@@ -48,14 +51,44 @@ public partial class Pages_items : System.Web.UI.Page
         GridView.DataSource = items;
         GridView.AutoGenerateColumns = false;
         GridView.DataBind();
-        
 
     }
+
+
 
     protected void PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         GridView.PageIndex = e.NewPageIndex;
 
         BindData();
+    }
+
+
+
+    protected void Cart_Click(object sender, EventArgs e)
+    {
+
+
+    }
+
+    protected void view_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void cart_Command(object sender, CommandEventArgs e)
+    {
+
+    }
+
+    protected void view_Command(object sender, CommandEventArgs e)
+    {
+        string a = e.CommandArgument.ToString();
+        Response.Redirect("Phone/" + a);
     }
 }

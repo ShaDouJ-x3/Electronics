@@ -18,6 +18,8 @@ public partial class Pages_Singin : System.Web.UI.Page
 
     protected void register_Click(object sender, EventArgs e)
     {
+        Response.Redirect("register.aspx");
+
     }
 
 

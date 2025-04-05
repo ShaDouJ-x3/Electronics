@@ -1,76 +1,91 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Cart.aspx.cs" Inherits="Pages_Cart" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="cart.aspx.cs" Inherits="Pages_cart" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            margin-left: 200px;
-        }
-        .auto-style3 {
-            color: #33CC33;
-            font-size: x-large;
+    <style>
+        .clss {
+            overflow-wrap: anywhere;
+            max-width: 20%;
+            width: min-content;
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table class="auto-style1">
-        <tr>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-            <td class="auto-style3">
-                <h2><strong>&nbsp;Shopping Cart</strong></h2>
-            </td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">
-                <asp:GridView ID="GVCart" runat="server" AutoGenerateColumns="False" 
-                    BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" 
-                    CellPadding="2" DataKeyNames="ItemId,Uemail,OrderDate"
-         ForeColor="Black" GridLines="None" OnSelectedIndexChanged="GVCart_SelectedIndexChanged" 
-                    Width="600 px" OnRowDeleting="GVCart_RowDeleting">
-        <AlternatingRowStyle BackColor="PaleGoldenrod" />
-        <Columns>
-           
-            <asp:BoundField DataField="ItemId" HeaderText="ItemId" ReadOnly="True" SortExpression="ItemId" />
-            <asp:BoundField DataField="VisaNumber" HeaderText="VisaNumber" SortExpression="VisaNumber" />
-            <asp:BoundField DataField="Qnty" HeaderText="Qnty" SortExpression="Qnty" />
-            <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
-            <asp:BoundField DataField="OrderDate" HeaderText="OrderDate" SortExpression="OrderDate" />
-            <asp:CommandField DeleteText="Remover Item" ShowDeleteButton="True">
-            <ItemStyle ForeColor="Red" />
-            </asp:CommandField>
-        </Columns>
-        <FooterStyle BackColor="Tan" />
-        <HeaderStyle BackColor="Tan" Font-Bold="True" />
-        <PagerStyle BackColor="PaleGoldenrod" ForeColor="DarkSlateBlue" HorizontalAlign="Center" />
-        <SelectedRowStyle BackColor="DarkSlateBlue" ForeColor="GhostWhite" />
-        <SortedAscendingCellStyle BackColor="#FAFAE7" />
-        <SortedAscendingHeaderStyle BackColor="#DAC09E" />
-        <SortedDescendingCellStyle BackColor="#E1DB9C" />
-        <SortedDescendingHeaderStyle BackColor="#C2A47B" />
-    </asp:GridView>
-            </td>
-        </tr>
-        <tr>
-            <td> 
-    <asp:Button ID="Button1" runat="server" Text="Checkout" PostBackUrl="~/Checkout.aspx" OnClick="Button1_Click"  />
-            </td>
-            <td class="auto-style2">
-                &nbsp;
-    <asp:Label ID="Label1" runat="server" Text="Total To Pay"></asp:Label> 
-    &nbsp;&nbsp;&nbsp; 
-    <asp:Label ID="Label2" runat="server" Text="0"></asp:Label> 
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style2">
-    <asp:Label ID="lblmsg" runat="server" ></asp:Label>
-            </td>
-        </tr>
-    </table>
-    <br />
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div>
+        <div style="margin: 50px">
+
+            <asp:GridView ID="GridView" runat="server" AutoGenerateColumns="true" BorderWidth="1px"
+                CellPadding="5" GridLines="Both"
+                OnPageIndexChanging="PageIndexChanging"
+                BorderStyle="solid" BorderColor="White" AllowPaging="true" PageSize="3"
+                OnSelectedIndexChanged="GridView_SelectedIndexChanged">
+                <PagerSettings Visible="true" Mode="Numeric" Position="Bottom" />
+
+                <Columns>
+
+                    <asp:TemplateField HeaderText="Photo">
+                        <ItemTemplate>
+                            <img src='<%# Eval("ItemImg") %>' alt="Property Image" style="max-width: 30%" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="Name" HeaderText="Name" HeaderStyle-Width="100px" ItemStyle-Width="15%" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" ItemStyle-Width="20%" ItemStyle-CssClass="clss" />
+                    <asp:BoundField DataField="Category" HeaderText="Category" />
+                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                    <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:C0}" />
+                    <asp:TemplateField HeaderText="">
+                        <ItemTemplate>
+                            <asp:Button ID="view" runat="server" Text="view" CommandName="ViewItem" CommandArgument='<%# Eval("ItemID") %>' OnCommand="view_Command" />
+
+                            <asp:Button ID="Remove" runat="server" Text="remove" CommandName="RemoveItem" CommandArgument='<%# Eval("ItemID") %>' OnCommand="Remove_Command" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </div>
+    </div>
+    <asp:Button ID="CheckOut" runat="server" Text="Check Out" OnClick="CheckOut_Click" />
+    <asp:Label ID="confirm" runat="server" Text="order has been placed" Visible="false" />
+
+    <div style="max-width: 200px; margin: auto">
+        <br />
+        <br />
+
+        <asp:Label ID="visanum" runat="server" Text="Visa Number" Visible="false" />
+        <asp:TextBox ID="visanumber" runat="server" Visible="false"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="rfvvisanum" runat="server"
+            ControlToValidate="visanumber"
+            ErrorMessage="Visa number is required!"
+            ForeColor="Red"
+            ValidationGroup="confirmorder" />
+
+        <br />
+        <br />
+
+        <asp:Label ID="visaexp" runat="server" Text="Expiration Date" Visible="false" />
+        <asp:TextBox ID="expdate" runat="server" Visible="false"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="rfvvisaexp" runat="server"
+            ControlToValidate="expdate"
+            ErrorMessage="Expiration date is required!"
+            ForeColor="Red"
+            ValidationGroup="confirmorder" />
+
+        <br />
+        <br />
+
+        <asp:Label ID="visacvv" runat="server" Text="CVV" Visible="false" />
+        <asp:TextBox ID="cvv" runat="server" Visible="false"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="rfvviscvv" runat="server"
+            ControlToValidate="cvv"
+            ErrorMessage="CVV is required!"
+            ForeColor="Red"
+            ValidationGroup="confirmorder" />
+
+        <br />
+        <br />
+
+        <asp:Button ID="confirmorder" runat="server" Text="Confirm Order" OnClick="confirmorder_Click"
+            Visible="false" ValidationGroup="confirmorder" />
+    </div>
 </asp:Content>
 
