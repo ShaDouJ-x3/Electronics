@@ -16,7 +16,16 @@
                     <div class="about_box">
                         <h3>About Us</h3>
                         <span>Our Mobile Shop</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of It is a long established fact that a reader will be distracted by the </p>
+                        <p data-end="339" data-start="107">
+                            Welcome to our website!<br data-end="133" data-start="130" />
+                            We are an online platform specializing in the sale of modern electronic devices such as smartphones, laptops, and headphones, with a focus on providing a simple and secure shopping experience for all users.</p>
+                        <p data-end="652" data-start="341">
+                            Our goal is to connect customers with the latest technology through user-friendly interfaces, a dedicated login system, and an interactive shopping cart. We provide clear information about each product, including name, price, description, and image, along with the ability to place an order with just one click.</p>
+                        <p data-end="870" data-start="654">
+                            Whether you&#39;re a regular visitor browsing products or an admin managing content and orders, our system is designed to meet your needs. We continuously update our product list to keep up with the latest market trends.</p>
+                        <p data-end="941" data-start="872">
+                            We are committed to quality, transparency, and 24/7 customer support.</p>
+                        <p>&nbsp;</p>
 
                     </div>
                

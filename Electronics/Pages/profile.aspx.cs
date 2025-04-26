@@ -1,15 +1,36 @@
-﻿using System;
+﻿using ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 
 public partial class Pages_profile : System.Web.UI.Page
 {
+    readonly Service1Client serv = new Service1Client();
     protected void Page_Load(object sender, EventArgs e)
     {
-        seasion.Text = Session["email"].ToString() + Session["password"].ToString();
+        if (!IsPostBack)
+        {
+            if (Session["email"] == null)
+            {
+                Response.Redirect("log_in.aspx");
+            }
+            else
+            {
+                User user = serv.GetUserByEmail(Session["email"].ToString());
+
+                Email.Text = user.UserEmail;
+                Name.Text = user.Fname + " " + user.Lname;
+                Phone.Text = user.Utelnum;
+                Country.Text = serv.SelectCityById(user.CityID).CityName;
+                Gender.Text = user.Ugender;
+                Birthday.Text = user.Ubirthday;
+            }
+        }
     }
 }

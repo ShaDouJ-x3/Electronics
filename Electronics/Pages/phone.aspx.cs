@@ -26,7 +26,10 @@ public partial class Pages_phone : System.Web.UI.Page
 
     protected void cart_Click(object sender, EventArgs e)
     {
-        Order order = new Order();
+        int id = int.Parse(Page.RouteData.Values["id"].ToString());
+        
+        Item item = serv.SelectItemByID(id);
+        serv.AddItemToCart(Session["email"].ToString(), item);
 
     }
 }

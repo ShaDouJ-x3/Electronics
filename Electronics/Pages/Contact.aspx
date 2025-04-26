@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-   <!-- contact -->
+    <!-- contact -->
     <div class="contact">
         <div class="container">
             <div class="row">
@@ -15,16 +15,16 @@
                     <form class="main_form">
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="Your name" type="text" name="Your Name">
+                                <asp:textbox id="name" runat="server" class="form-control" placeholder="Your name" type="text" name="Your Name"/>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="Email" type="text" name="Email">
+                                <asp:textbox id="email" runat="server" class="form-control" placeholder="Email" type="text" name="Email"/>
                             </div>
                             <div class=" col-md-12">
-                                <input class="form-control" placeholder="Phone" type="text" name="Phone">
+                                <asp:textbox id="subject" runat="server" class="form-control" placeholder="subject" type="text" name="subject"/>
                             </div>
                             <div class="col-md-12">
-                                <textarea class="textarea" placeholder="Message"></textarea>
+                                <asp:textbox id="message" runat="server" class="textarea" placeholder="Message"></asp:textbox>
                             </div>
                             <div class=" col-md-12">
                                 <button class="send">Send</button>

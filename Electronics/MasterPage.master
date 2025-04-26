@@ -78,7 +78,7 @@
                             <div class="center-desk">
                                 <div class="logo">
                                     <a href="Home.aspx">
-                                        <img src="../images/logo.png" alt="#"></a>
+                                        <img src="../../images/logo.png" alt="#"></a>
                                 </div>
                             </div>
                         </div>
@@ -109,8 +109,13 @@
                                             </a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a id="link5" runat="server" class="nav-link" href="~/pages/cart.aspx" >
-                                                <asp:Label ID="lbl5" runat="server" Text="Cart"  />
+                                            <a id="link5" runat="server" class="nav-link" href="~/pages/cart.aspx">
+                                                <asp:Label ID="lbl5" runat="server" Text="Cart" />
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="link6" runat="server" class="nav-link" href="~/pages/About.aspx">
+                                                <asp:Label ID="lbl6" runat="server" Text="About" />
                                             </a>
                                         </li>
                                     </ul>

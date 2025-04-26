@@ -83,7 +83,9 @@ public partial class Pages_items : System.Web.UI.Page
 
     protected void cart_Command(object sender, CommandEventArgs e)
     {
-
+        int a = int.Parse(e.CommandArgument.ToString());
+        Item item = serv.SelectItemByID(a);
+        serv.AddItemToCart(Session["email"].ToString(), item);
     }
 
     protected void view_Command(object sender, CommandEventArgs e)

@@ -18,7 +18,8 @@
 
         <br />
 
-        <asp:TextBox ID="answer" runat="server" PlaceHolder="Enter answer"></asp:TextBox>
+        <asp:TextBox ID="answer" runat="server" PlaceHolder="
+            answer"></asp:TextBox>
         <asp:RequiredFieldValidator ValidationGroup="check" ID="rfvAnswer" runat="server" ControlToValidate="answer"
             ErrorMessage="Answer is required" ForeColor="Red" Display="Dynamic" />
 

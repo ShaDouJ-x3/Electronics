@@ -1,35 +1,64 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="phone.aspx.cs" Inherits="Pages_phone" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <div style="margin-right: 10%; margin-left: 10%;">
-     <div style="float: left;">
-         <asp:Image ID="Image1" runat="server" ImageUrl="~/resources/images/items/bench.png" BorderColor="Black" />
-     </div>
-     <div style="margin-left: 10px;">
-         <asp:Label ID="name" runat="server" Text="name"></asp:Label>
-
-         <br />
-
-         <asp:TextBox ID="description" runat="server" ReadOnly="True" TextMode="MultiLine" Width="300px" Height="200px"></asp:TextBox>
-
-         <br />
-
-         <asp:Label ID="category" runat="server" Text="category"></asp:Label>
-
-         <br />
-
-         <asp:Label ID="quantity" runat="server" Text="quantity"></asp:Label>
-
-         <br />
-
-         <asp:Label ID="price" runat="server" Text="price"></asp:Label>
-
-         <br />
-
-         <asp:Button ID="cart" runat="server" Text="Add to Cart" OnClick="cart_Click"/>
-     </div>
- </div>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style>
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .product-details {
+            margin-left: 20px;
+        }
+        .product-label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .description-box {
+            resize: none;
+        }
+    </style>
 </asp:Content>
 
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <!-- Image -->
+            <div class="col-md-4">
+                <asp:Image ID="Image1" runat="server" CssClass="product-image img-fluid" />
+            </div>
+
+            <!-- Details -->
+            <div class="col-md-8 product-details">
+                <h3>
+                    <asp:Label ID="name" runat="server" Text="Product Name"></asp:Label>
+                </h3>
+
+                <div class="mb-3">
+                    <label class="product-label">Description</label><br />
+                    <asp:TextBox ID="description" runat="server" CssClass="form-control description-box" 
+                        ReadOnly="True" TextMode="MultiLine" Rows="6" Width="100%">
+                    </asp:TextBox>
+                </div>
+
+                <div class="mb-2">
+                    <label class="product-label">Category:</label>
+                    <asp:Label ID="category" runat="server" Text="Category"></asp:Label>
+                </div>
+
+                <div class="mb-2">
+                    <label class="product-label">Quantity:</label>
+                    <asp:Label ID="quantity" runat="server" Text="Quantity"></asp:Label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="product-label">Price:</label>
+                    <asp:Label ID="price" runat="server" Text="Price"></asp:Label>
+                </div>
+
+                <asp:Button ID="cart" runat="server" Text="Add to Cart" CssClass="btn btn-primary" OnClick="cart_Click" />
+            </div>
+        </div>
+    </div>
+</asp:Content>

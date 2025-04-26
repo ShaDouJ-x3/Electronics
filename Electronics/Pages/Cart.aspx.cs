@@ -12,7 +12,6 @@ public partial class Pages_cart : System.Web.UI.Page
     readonly Service1Client serv = new Service1Client();
     protected void Page_Load(object sender, EventArgs e)
     {
-        Session["email"] = "abcd";
         if (!Page.IsPostBack)
         {
             BindData();
@@ -60,7 +59,9 @@ public partial class Pages_cart : System.Web.UI.Page
 
     protected void cart_Command(object sender, CommandEventArgs e)
     {
-
+        int a = int.Parse(e.CommandArgument.ToString());
+        Item item = serv.SelectItemByID(a);
+        serv.AddItemToCart(Session["email"].ToString(), item);
     }
 
     protected void view_Command(object sender, CommandEventArgs e)

@@ -15,6 +15,10 @@ public partial class Pages_log_out : System.Web.UI.Page
     {
 
         Session.Clear();
-        Response.Redirect("~/pages/login.aspx");
+        Response.Redirect("~/pages/singin.aspx");
+    }
+    protected void cancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/pages/home.aspx");
     }
 }
